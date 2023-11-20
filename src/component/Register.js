@@ -107,8 +107,7 @@ const Register = () => {
             />
             <FormControlLabel
               control={<Checkbox checked={termsChecked} onChange={() => setTermsChecked(!termsChecked)} />}
-              label="I agree to the Terms and Conditions"
-            />
+              label="I agree to the"/><RouterLink to='/terms'>Terms and Conditions</RouterLink>
             <Button
               type="button"
               fullWidth

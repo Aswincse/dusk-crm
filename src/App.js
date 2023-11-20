@@ -7,6 +7,7 @@ import AddCustomer from './component/addcust';
 import Custdetail from './component/custdetail';
 import { addCustomer, getCustomers, deleteCustomer } from './component/userdb';
 import React, { useState, useEffect } from 'react';
+import Terms from './component/Terms';
 
 
 
@@ -41,6 +42,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="/add-customer" element={<AddCustomer onAddCustomer={handleAddCustomer} />} />
         <Route path="/customer-details" element={<Custdetail  customers={customers} onDeleteCustomer={handleDeleteCustomer} />} />
 

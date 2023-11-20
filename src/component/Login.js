@@ -100,9 +100,9 @@ const Login = () => {
             type="button"
             fullWidth
             variant="contained"
-            color="secondary"
+            
             onClick={handleGoogleSignIn}
-            style={{ marginTop: 10 }}
+            style={{ marginTop: 10 , backgroundColor:"#287BC7"}}
           >
             Sign in with Google
           </Button>

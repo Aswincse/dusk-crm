@@ -51,7 +51,7 @@ function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isAuthPage = ['/', '/register'].includes(location.pathname);
+  const isAuthPage = ['/', '/register','/terms'].includes(location.pathname);
   if (isAuthPage) {
     return null;
   }
