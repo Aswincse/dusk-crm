@@ -1,8 +1,8 @@
 // Register.js
 import React, { useState } from 'react';
-import { Button, TextField, Typography, Container, Paper, Grid, Link, Checkbox, FormControlLabel } from '@mui/material';
+import { Button, TextField, Typography, Container, Paper, Grid, Link, Checkbox, FormControlLabel,inputProp } from '@mui/material';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
-import image1 from './newimg.png';
+import image1 from './final.png';
 import LoginIcon from '@mui/icons-material/AccountCircle';
 import { auth } from './firebase'; // Update the import path
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword  } from 'firebase/auth'; // Add this line
@@ -29,6 +29,12 @@ const Register = () => {
   const handleRegister = async () => {
     if (!termsChecked) {
       alert('Please accept the terms and conditions');
+      return;
+    }
+
+    // Check for the minimum password length
+    if (formData.password.length < 8) {
+      alert('Password must be at least 8 characters long');
       return;
     }
 
@@ -66,8 +72,8 @@ const Register = () => {
     <div style={{ backgroundImage: "url('https://c4.wallpaperflare.com/wallpaper/413/925/249/minimalism-abstract-pattern-digital-art-wallpaper-preview.jpg')", backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
       <Container component="main" maxWidth="xs" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Paper elevation={3} style={{ padding: 20, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <img src={image1} alt="Dusk CRM Logo" style={{ width: '330px', height: '60px', marginBottom: '20px', borderRadius: '5%' }} />
-          <LoginIcon style={{ fontSize: 50, color: 'grey', marginBottom: '20px' }} />
+          <img src={image1} alt="Dusk CRM Logo" style={{ width: '260px', height: '60px', marginBottom: '20px', borderRadius: '5%' }} />
+          <LoginIcon style={{ fontSize: 50, color: 'black', marginBottom: '20px' }} />
           <Typography component="h1" variant="h5">
             Register
           </Typography>
@@ -94,6 +100,7 @@ const Register = () => {
               label="Password"
               type="password"
               id="password"
+              maxLength="5"
               autoComplete="new-password"
               value={formData.password}
               onChange={handleInputChange}

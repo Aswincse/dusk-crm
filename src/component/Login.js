@@ -3,9 +3,9 @@ import { Button, TextField, Typography, Container, Paper, Grid, Link } from '@mu
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import LoginIcon from '@mui/icons-material/AccountCircle';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './firebase'; // Import your 'auth' instance from your firebase configuration file
-import usersData from './UserData';
-import image1 from './newimg.png';
+import { auth, googleProvider  } from './firebase'; 
+import image1 from './final.png';
+import { signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -34,14 +34,28 @@ const Login = () => {
     }
   };
 
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+
+      console.log('Google Sign-In successful:', user);
+      navigate('/home');
+      // Handle the login logic or redirect the user
+    } catch (error) {
+      console.error('Error with Google Sign-In:', error);
+      // Handle the error
+    }
+  };
+
   return (
-    <div style={{ backgroundImage: "url('https://c4.wallpaperflare.com/wallpaper/413/925/249/minimalism-abstract-pattern-digital-art-wallpaper-preview.jpg')", backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+    <div style={{ backgroundImage: "url('https://c4.wallpaperflare.com/wallpaper/413/925/249/minimalism-abstract-pattern-digital-art-wallpaper-preview.jpg')", backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>
       <Container component="main" maxWidth="xs" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Paper elevation={3} style={{ padding: 20, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           
-        <img src={image1} alt="Dusk CRM Logo" style={{ width: '330px', height: '60px', marginBottom: '20px', borderRadius: '5%' }} />
-        <LoginIcon style={{ fontSize: 50, color: 'grey', marginBottom: '20px' }} />
-        <Typography component="h1" variant="h5">
+        <img src={image1} alt="Dusk CRM Logo" style={{ width: '260px', height: '60px', marginBottom: '20px', borderRadius: '5%' }} />
+        <LoginIcon style={{ fontSize: 50, color: 'black', marginBottom: '20px' }} />
+        <Typography component="h1" variant="h5" >
           Login
         </Typography>
         <form style={{ width: '100%', marginTop: 20 }}>
@@ -81,6 +95,18 @@ const Login = () => {
           >
             Login
           </Button>
+
+          <Button
+            type="button"
+            fullWidth
+            variant="contained"
+            color="secondary"
+            onClick={handleGoogleSignIn}
+            style={{ marginTop: 10 }}
+          >
+            Sign in with Google
+          </Button>
+
           <Grid container style={{ marginTop: 20 }}>
             <Grid item xs>
               <Link href="#" variant="body2">
