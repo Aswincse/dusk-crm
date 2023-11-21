@@ -7,6 +7,7 @@ import { useDrawingArea } from '@mui/x-charts/hooks';
 import { styled } from '@mui/material/styles';
 import Orders from './orders';
 import Footer from './footer';
+import bgimg from './bg3.jpg'
 
 const data = [
   { value: 5, label: 'India' },
@@ -103,9 +104,19 @@ const valueFormatter = (value) => `${value} lakhs`;
 
 const Home = () => {
   return (
-    <div>
-    <Grid  container spacing={2} justifyContent="center">
-      <Grid  item xs={12} md={4} style={{marginTop: '10px'}}>
+    <div style={{
+      backgroundImage: `url(${bgimg})`, // Set the background image
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      minHeight: '89.9vh', // Adjust the height as needed
+      minWidth: '95vw', // Adjust the height as needed
+      display: 'flex',
+      flexDirection: 'column',
+      // alignItems: 'center',
+      justifyContent: 'start',
+    }} >
+    <Grid  container spacing={4} justifyContent="space-around">
+      <Grid  item xs={12} md={4} style={{marginTop: '10px',paddingLeft: '10px'}}>
         <Paper square={false} elevation={24} style={{ padding: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)' }}>
           {/* Bar Chart */}
           <BarChart
@@ -140,7 +151,7 @@ const Home = () => {
           </PieChart>
         </Paper>
       </Grid>
-    </Grid>
+    </Grid >
     <br/>
     <Paper square={false} elevation={24} style={{margin: '10px', padding: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)' }} >
       <Orders  />

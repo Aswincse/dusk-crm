@@ -1,5 +1,5 @@
 import React from 'react';
-import bgimg from './bgpic.jpg';
+import bgimg from './bg2.jpg';
 import {
   Container,
   Typography,
@@ -55,26 +55,37 @@ const capitalizeFirstLetter = (str) => {
 
 const Custdetail = ({ customers, onDeleteCustomer }) => {
   return (
-    <Container maxWidth="lg" >
-      <Box my={4}>
-        <Typography variant="h4" align="center" gutterBottom>
+    <Container maxWidth="lg"
+    style={{
+      backgroundImage: `url(${bgimg})`, // Set the background image
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      minHeight: '89.9vh', // Adjust the height as needed
+      minWidth: '100vw', // Adjust the height as needed
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'start',
+    }} >
+      <Box my={4} >
+        <Typography component={Paper} elevation={18} variant="h4" align="center" style={{color: 'black', paddingTop: '6px', paddingBottom: '6px'}} gutterBottom>
           Customer List
         </Typography>
 
-        <StyledTableContainer component={Paper}>
+        <StyledTableContainer component={Paper} style={{ boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.5)'}} >
           <Table>
             <TableHead>
-              <TableRow>
-                <StyledTableCell>ID</StyledTableCell>
-                <StyledTableCell>Name</StyledTableCell>
-                <StyledTableCell>Email</StyledTableCell>
-                <StyledTableCell>Phone Number</StyledTableCell>
-                <StyledTableCell>Company</StyledTableCell>
-                <StyledTableCell>Priority</StyledTableCell>
-                <StyledTableCell>Quotation Amount</StyledTableCell>
-                <StyledTableCell>Progress</StyledTableCell>
-                <StyledStatusCell>Status</StyledStatusCell>
-                <StyledTableCell>Action</StyledTableCell>
+              <TableRow >
+                <StyledTableCell style={{fontWeight: 'bold'}}>ID</StyledTableCell>
+                <StyledTableCell style={{fontWeight: 'bold'}}>Name</StyledTableCell>
+                <StyledTableCell style={{fontWeight: 'bold'}}>Email</StyledTableCell>
+                <StyledTableCell style={{fontWeight: 'bold'}}>Phone Number</StyledTableCell>
+                <StyledTableCell style={{fontWeight: 'bold'}}>Company</StyledTableCell>
+                <StyledTableCell style={{fontWeight: 'bold'}}>Priority</StyledTableCell>
+                <StyledTableCell style={{fontWeight: 'bold'}}>Quotation Amount</StyledTableCell>
+                <StyledTableCell style={{fontWeight: 'bold'}}>Progress</StyledTableCell>
+                <StyledStatusCell style={{fontWeight: 'bold'}}>Status</StyledStatusCell>
+                <StyledTableCell style={{fontWeight: 'bold'}}>Action</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
