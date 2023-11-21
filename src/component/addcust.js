@@ -1,17 +1,27 @@
-// AddCustomer.js
 import React, { useState } from 'react';
-import { Button, TextField, Container, Typography, Box, CircularProgress, MenuItem, FormControl, InputLabel, Select } from '@mui/material';
+import {
+  Button,
+  TextField,
+  Container,
+  Typography,
+  Box,
+  Slider,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Select,
+} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const AddCustomer = ({ onAddCustomer }) => {
   const [customerData, setCustomerData] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     phoneNumber: '',
     companyName: '',
     email: '',
     priority: '',
     quotationAmount: '',
+    progress: 0,
   });
 
   const [loading, setLoading] = useState(false);
@@ -26,9 +36,22 @@ const AddCustomer = ({ onAddCustomer }) => {
   };
 
   const handleAddCustomer = async () => {
-    const { firstName, lastName, phoneNumber, companyName, email, priority, quotationAmount } = customerData;
+    const {
+      name,
+      phoneNumber,
+      companyName,
+      email,
+      priority,
+      quotationAmount,
+      progress,
+    } = customerData;
 
-    if (firstName.trim() === '' || lastName.trim() === '' || phoneNumber.trim() === '' || companyName.trim() === '' || email.trim() === '') {
+    if (
+      name.trim() === '' ||
+      phoneNumber.trim() === '' ||
+      companyName.trim() === '' ||
+      email.trim() === ''
+    ) {
       setError('Please fill in all required fields.');
       return;
     }
@@ -39,23 +62,23 @@ const AddCustomer = ({ onAddCustomer }) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       onAddCustomer({
-        firstName,
-        lastName,
+        name,
         phoneNumber,
         companyName,
         email,
         priority,
         quotationAmount,
+        progress,
       });
 
       setCustomerData({
-        firstName: '',
-        lastName: '',
+        name: '',
         phoneNumber: '',
         companyName: '',
         email: '',
         priority: '',
         quotationAmount: '',
+        progress: 0,
       });
 
       navigate('/customer-details');
@@ -91,21 +114,13 @@ const AddCustomer = ({ onAddCustomer }) => {
           </Typography>
 
           <TextField
-            label="First Name"
+            label="Name"
+            type="text"
             variant="outlined"
             fullWidth
             margin="normal"
-            value={customerData.firstName}
-            onChange={(e) => handleInputChange('firstName', e.target.value)}
-          />
-
-          <TextField
-            label="Last Name"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            value={customerData.lastName}
-            onChange={(e) => handleInputChange('lastName', e.target.value)}
+            value={customerData.name}
+            onChange={(e) => handleInputChange('name', e.target.value)}
           />
 
           <TextField
@@ -157,6 +172,23 @@ const AddCustomer = ({ onAddCustomer }) => {
             onChange={(e) => handleInputChange('quotationAmount', e.target.value)}
           />
 
+          <Typography id="progress-slider-label" gutterBottom>
+            Progress
+          </Typography>
+          <Slider
+            value={customerData.progress}
+            onChange={(_, value) => handleInputChange('progress', value)}
+            valueLabelDisplay="auto"
+            valueLabelFormat={(value) => `${value}`}
+            aria-labelledby="progress-slider-label"
+            marks={[
+              { value: 0, label: '0%' },
+              { value: 50, label: '50%' },
+              { value: 100, label: '100%' },
+            ]}
+            sx={{ width: '70%' }}
+          />
+
           {error && (
             <Typography color="error" variant="body2" gutterBottom>
               {error}
@@ -171,7 +203,7 @@ const AddCustomer = ({ onAddCustomer }) => {
             disabled={loading}
             style={{ marginTop: '16px' }}
           >
-            {loading ? <CircularProgress size={24} color="inherit" /> : 'Add Customer'}
+            {loading ? 'Adding Customer...' : 'Add Customer'}
           </Button>
         </Box>
       </Container>
