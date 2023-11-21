@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Button, TextField, Typography, Container, Paper, Grid, Link, Checkbox, FormControlLabel,inputProp } from '@mui/material';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
-import image1 from './final.png';
+import image1 from './final.jpg';
 import LoginIcon from '@mui/icons-material/AccountCircle';
 import { auth } from './firebase'; // Update the import path
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword  } from 'firebase/auth'; // Add this line

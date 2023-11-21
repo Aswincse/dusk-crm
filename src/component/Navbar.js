@@ -13,7 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import LoginIcon from '@mui/icons-material/AccountCircle';
 import { Link, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import img1 from './final.png';
+import img1 from './final.jpg';
 import AddCustomer from './addcust';
 
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];

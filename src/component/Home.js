@@ -13,6 +13,7 @@ const data = [
   { value: 10, label: 'USA' },
   { value: 15, label: 'Canada' },
   { value: 20, label: 'UK' },
+  { value: 2, label: 'Others'}
 ];
 
 const chartSize = {

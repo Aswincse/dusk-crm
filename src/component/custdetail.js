@@ -1,4 +1,5 @@
 import React from 'react';
+import bgimg from './bgpic.jpg';
 import {
   Container,
   Typography,
@@ -54,7 +55,7 @@ const capitalizeFirstLetter = (str) => {
 
 const Custdetail = ({ customers, onDeleteCustomer }) => {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" >
       <Box my={4}>
         <Typography variant="h4" align="center" gutterBottom>
           Customer List

@@ -4,7 +4,7 @@ import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import LoginIcon from '@mui/icons-material/AccountCircle';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, googleProvider  } from './firebase'; 
-import image1 from './final.png';
+import image1 from './final.jpg';
 import { signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
