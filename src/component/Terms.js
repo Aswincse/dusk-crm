@@ -44,6 +44,11 @@ export default function AlertDialogSlide({ termsChecked, setTermsChecked }) {
     handleClose();
   };
 
+  const handleDisagree = () => {
+    setTermsChecked(false);
+    handleClose();
+  };
+
   return (
     <div>
       <Link  onClick={handleClickOpen} style={{fontSize:'16px',marginLeft:'0',paddingLeft:'0', cursor:'pointer'}}>
@@ -65,7 +70,7 @@ export default function AlertDialogSlide({ termsChecked, setTermsChecked }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
+          <Button onClick={handleDisagree}>Disagree</Button>
           <Button onClick={handleAgree}>Agree</Button>
         </DialogActions>
       </Dialog>
