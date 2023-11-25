@@ -14,6 +14,8 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
+
+
 const AddCustomer = ({ onAddCustomer }) => {
   const [customerData, setCustomerData] = useState({
     name: '',
