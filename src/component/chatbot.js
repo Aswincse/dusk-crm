@@ -2,7 +2,29 @@ import React from 'react';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 
-const steps = [
+// Custom styles for the chatbot
+const theme = {
+  background: 'lightgrey',
+  headerBgColor: 'black',
+  headerFontSize: '20px',
+  botBubbleColor: 'grey',
+  headerFontColor: 'white',
+  botFontColor: 'white',
+  userBubbleColor: '#FF5733',
+  userFontColor: 'white',
+};
+
+// Configuration for the chatbot
+const chatbotConfig = {
+  botAvatar: 'https://i.pinimg.com/originals/02/c5/a8/02c5a82909a225411008d772ee6b7d62.png',
+  botAvatarStyle: {
+    borderRadius: '50%',
+  },
+  floating: true,
+};
+
+// Chatbot conversation steps
+const chatbotSteps = [
   {
     id: '0',
     message: 'Welcome to Dusk Bot! How can I assist you today?',
@@ -28,7 +50,7 @@ const steps = [
     user: true,
     trigger: '5',
     validator: (value) => {
-      // You may customize phone number validation as needed
+      // Customize phone number validation as needed
       if (!value.match(/^\d{10}$/)) {
         return 'Please enter a valid 10-digit phone number.';
       }
@@ -62,33 +84,14 @@ const steps = [
   },
 ];
 
-const theme = {
-  background: 'lightgrey',
-  headerBgColor: 'black',
-  headerFontSize: '20px',
-  botBubbleColor: 'grey',
-  headerFontColor: 'white',
-  botFontColor: 'white',
-  userBubbleColor: '#FF5733',
-  userFontColor: 'white',
-};
-
-const config = {
-  botAvatar: 'https://i.pinimg.com/originals/02/c5/a8/02c5a82909a225411008d772ee6b7d62.png',
-  botAvatarStyle: {
-    borderRadius: '50%',
-  },
-  floating: true,
-};
-
 function Chatbot() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
         <ChatBot
           headerTitle="Dusk Bot"
-          steps={steps}
-          {...config}
+          steps={chatbotSteps}
+          {...chatbotConfig}
         />
       </ThemeProvider>
     </div>
