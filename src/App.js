@@ -8,6 +8,7 @@ import Custdetail from './component/custdetail';
 import { addCustomer, getCustomers, deleteCustomer } from './component/userdb';
 import React, { useState, useEffect } from 'react';
 import Chatbot from './component/chatbot';
+import CustomChatbot from './component/chatbot';
 
 
 
@@ -38,7 +39,6 @@ function App() {
     <div>
 
       <Navbar />
-      <Chatbot/>
 
       <Routes>
         <Route path="/" element={<Login />} />
