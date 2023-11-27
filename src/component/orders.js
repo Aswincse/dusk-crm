@@ -54,31 +54,31 @@ function preventDefault(event) {
 
 export default function Orders() {
   return (
-    <div>
+    <div style={{ overflowX: 'auto', margin: '10px', padding: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', backgroundColor: 'white', borderRadius:'5px' }}>
       <Title>Recent Orders</Title>
-      <Table size="small" >
+      <Table size="small">
         <TableHead>
-          <TableRow >
-            <TableCell style={{fontSize: '20px',padding:'20px'}}>Date</TableCell>
-            <TableCell style={{fontSize: '20px',padding:'20px'}}>Name</TableCell>
-            <TableCell style={{fontSize: '20px',padding:'20px'}}>Ship To</TableCell>
-            <TableCell style={{fontSize: '20px',padding:'20px'}}>Payment Method</TableCell>
-            <TableCell style={{fontSize: '20px',padding:'20px'}} align="right">Sale Amount</TableCell>
+          <TableRow>
+            <TableCell style={{ fontSize: '20px', padding: '20px' }}>Date</TableCell>
+            <TableCell style={{ fontSize: '20px', padding: '20px' }}>Name</TableCell>
+            <TableCell style={{ fontSize: '20px', padding: '20px' }}>Ship To</TableCell>
+            <TableCell style={{ fontSize: '20px', padding: '20px' }}>Payment Method</TableCell>
+            <TableCell style={{ fontSize: '20px', padding: '20px' }} align="right">Sale Amount</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.id}>
-              <TableCell style={{fontSize: '16px',padding:'18px'}}>{row.date}</TableCell>
-              <TableCell style={{fontSize: '16px',padding:'18px'}}>{row.name}</TableCell>
-              <TableCell style={{fontSize: '16px',padding:'18px'}}>{row.shipTo}</TableCell>
-              <TableCell style={{fontSize: '16px',padding:'18px'}}>{row.paymentMethod}</TableCell>
-              <TableCell style={{fontSize: '16px',padding:'18px'}} align="right">{`$${row.amount}`}</TableCell>
+              <TableCell style={{ fontSize: '16px', padding: '18px' }}>{row.date}</TableCell>
+              <TableCell style={{ fontSize: '16px', padding: '18px' }}>{row.name}</TableCell>
+              <TableCell style={{ fontSize: '16px', padding: '18px' }}>{row.shipTo}</TableCell>
+              <TableCell style={{ fontSize: '16px', padding: '18px' }}>{row.paymentMethod}</TableCell>
+              <TableCell style={{ fontSize: '16px', padding: '18px' }} align="right">{`$${row.amount}`}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-      <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
+      <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3, display: 'block' }}>
         See more orders
       </Link>
     </div>

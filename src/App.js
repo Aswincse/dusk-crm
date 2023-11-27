@@ -10,7 +10,6 @@ import React, { useState, useEffect } from 'react';
 
 
 
-
 function App() {
 
   const [customers, setCustomers] = useState([]);
@@ -33,6 +32,8 @@ function App() {
 
 
   return (
+
+    
     <div>
 
       <Navbar />

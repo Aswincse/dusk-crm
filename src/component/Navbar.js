@@ -56,8 +56,9 @@ function Navbar() {
     return null;
   }
 
+
   return (
-    <div>
+    <div className='jost'>
       <AppBar position="static" sx={{ backgroundColor: '#121212' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
@@ -86,7 +87,7 @@ function Navbar() {
               onClose={handleCloseNavMenu}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Button component={Link} to="/home">
+                <Button component={Link} to="/home" >
                   Home
                 </Button>
               </MenuItem>
@@ -184,11 +185,12 @@ function Navbar() {
                   sx={{mt:6}}
                 >
                   {/* {settings.map((setting) => ( */}
-                    <MenuItem
-                    //  key={setting}
-                      onClick={handleCloseUserMenu} >
-                      <Typography textAlign="center" onClick={handleLogout}>Log out</Typography>
-                    </MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center" onClick={handleLogout}>
+                      Log out
+                    </Typography>
+                  </MenuItem>
+                  
                   {/* ))} */}
                 </Menu>
               </Box>
